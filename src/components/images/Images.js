@@ -5,6 +5,8 @@ import logoImage from '../../assets/images/vaimo-logo.png';
 import menuIcon from '../../assets/images/menu-icon.png';
 import emailIcon from '../../assets/images/email-icon.png';
 
+import './Images.scss';
+
 export const Logo = props => {
   return (
     <img

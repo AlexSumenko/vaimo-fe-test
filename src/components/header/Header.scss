@@ -20,7 +20,15 @@
   align-items: center;
 }
 
+.cart {
+  background-color: $vm-color-grey;
+  padding: 4px 8px 0px;
+}
+
 .mobile-navigation {
+  background-color: $vm-color-grey;
+  padding: 4px 8px 0px;
+  margin-left: 8px;
   display: block;
 }
 

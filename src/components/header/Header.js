@@ -17,13 +17,12 @@ const Header = () => {
             alt='Website Logo'
           ></Logo>
           <div className='header__icons'>
-            <CartIcon className='cart' width='20px' height='20px'></CartIcon>
-            <MenuIcon
-              className='mobile-navigation'
-              width='20px'
-              height='20px'
-              alt='Menu Icon'
-            ></MenuIcon>
+            <div className='cart'>
+              <CartIcon width='20px' height='20px'></CartIcon>
+            </div>
+            <div className='mobile-navigation'>
+              <MenuIcon width='20px' height='20px' alt='Menu Icon'></MenuIcon>
+            </div>
           </div>
         </div>
       </div>
