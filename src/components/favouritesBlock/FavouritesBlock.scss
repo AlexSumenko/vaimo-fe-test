@@ -1,0 +1,21 @@
+@import '../../assets/styles/variables';
+
+.favourites-block {
+  margin-bottom: 2rem;
+  &__header {
+    color: $vm-color-grey;
+    margin-bottom: 1rem;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+@media screen and (min-width: $vm-desktop-breakpoint) {
+  .product-grid {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}

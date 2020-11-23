@@ -1,0 +1,23 @@
+@import '../../assets/styles/variables';
+
+.product {
+  &__image {
+    margin: 1rem;
+    border: 1px solid $vm-color-grey;
+  }
+
+  &__image-image {
+    margin: 16px;
+  }
+
+  & span {
+    display: block;
+  }
+  &__name {
+    font-weight: bold;
+    margin: 0.8rem 0;
+  }
+  &__price {
+    margin: 0.8rem 0;
+  }
+}
