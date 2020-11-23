@@ -1,0 +1,43 @@
+@import '../../assets/styles/variables';
+
+.top-background {
+  width: 100%;
+  height: 1rem;
+  background-color: $vm-color-green;
+}
+
+.header__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.header__icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mobile-navigation {
+  display: block;
+}
+
+.desktop-navigation {
+  display: none;
+}
+
+@media screen and (min-width: $vm-desktop-breakpoint) {
+  .top-background {
+    height: 1.5rem;
+  }
+
+  .mobile-navigation {
+    display: none;
+  }
+
+  .desktop-navigation {
+    display: block;
+  }
+}
