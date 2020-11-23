@@ -15,13 +15,13 @@ const Header = () => {
             width='40%'
             height='40rem'
             alt='Website Logo'
-          ></Logo>
+          />
           <div className='header__icons'>
             <div className='cart'>
-              <CartIcon width='20px' height='20px'></CartIcon>
+              <CartIcon width='20px' height='20px' />
             </div>
             <div className='mobile-navigation'>
-              <MenuIcon width='20px' height='20px' alt='Menu Icon'></MenuIcon>
+              <MenuIcon width='20px' height='20px' alt='Menu Icon' />
             </div>
           </div>
         </div>

@@ -1,0 +1,12 @@
+@import '../../assets/styles/variables';
+
+.splash-row {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: $vm-desktop-breakpoint) {
+  .splash-row {
+    flex-direction: row;
+  }
+}
