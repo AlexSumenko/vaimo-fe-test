@@ -5,6 +5,17 @@ import { menuCategoriesMock } from '../../assets/mock/MenuCategoriesMock';
 import './Navigation.scss';
 
 const Navigation = () => {
+  //   const categoryBuilder = (catObj, itemClass) =>
+  //     catObj.map(item => {
+  //       return (
+  //         <div>
+  //           <a key={item.id} className={itemClass} href={item.link}>
+  //             {item.name.toUpperCase()}
+  //           </a>
+  //         </div>
+  //       );
+  //     });
+
   const menuCategories = menuCategoriesMock.map(item => {
     return (
       <>

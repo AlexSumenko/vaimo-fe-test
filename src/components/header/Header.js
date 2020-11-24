@@ -6,12 +6,12 @@ import { Logo, CartIcon, MenuIcon } from '../images/Images';
 import './Header.scss';
 
 const Header = () => {
-  const [navStyle, setNavStyle] = useState('mobile-navigation-hidden');
+  const [navClass, setNavClass] = useState('mobile-navigation-hidden');
 
-  const flipNavStyle = () => {
-    navStyle === 'mobile-navigation'
-      ? setNavStyle('mobile-navigation-hidden')
-      : setNavStyle('mobile-navigation');
+  const flipNavClass = () => {
+    navClass === 'mobile-navigation'
+      ? setNavClass('mobile-navigation-hidden')
+      : setNavClass('mobile-navigation');
   };
 
   return (
@@ -29,12 +29,12 @@ const Header = () => {
             <div className='cart'>
               <CartIcon width='20px' height='20px' />
             </div>
-            <div className='menu' onClick={flipNavStyle}>
+            <div className='menu' onClick={flipNavClass}>
               <MenuIcon width='20px' height='20px' alt='Menu Icon' />
             </div>
           </div>
         </div>
-        <div className={navStyle}>
+        <div className={navClass}>
           <Navigation />
         </div>
       </div>
