@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
 
+import MiniCart from '../miniCart/MiniCart';
 import Navigation from '../navigation/Navigation';
 import { Logo, CartIcon, MenuIcon } from '../images/Images';
 
 import './Header.scss';
 
 const Header = () => {
-  const [navClass, setNavClass] = useState('mobile-navigation-hidden');
+  const [navClass, setNavClass] = useState('mobile-navigation--hidden');
+  const [miniCartClass, setMiniCartClass] = useState('mini-cart--hidden');
 
   const flipNavClass = () => {
-    navClass === 'mobile-navigation'
-      ? setNavClass('mobile-navigation-hidden')
-      : setNavClass('mobile-navigation');
+    if (navClass === 'mobile-navigation--hidden') {
+      setNavClass('mobile-navigation');
+      setMiniCartClass('mini-cart--hidden');
+    } else {
+      setNavClass('mobile-navigation--hidden');
+    }
+  };
+
+  const flipMiniCartClass = () => {
+    if (miniCartClass === 'mini-cart--hidden') {
+      setMiniCartClass('mini-cart');
+      setNavClass('mobile-navigation--hidden');
+    } else {
+      setMiniCartClass('mini-cart--hidden');
+    }
   };
 
   return (
@@ -26,13 +40,16 @@ const Header = () => {
             alt='Website Logo'
           />
           <div className='header__icons'>
-            <div className='cart'>
+            <div className='cart' onClick={flipMiniCartClass}>
               <CartIcon width='20px' height='20px' />
             </div>
             <div className='menu' onClick={flipNavClass}>
               <MenuIcon width='20px' height='20px' alt='Menu Icon' />
             </div>
           </div>
+        </div>
+        <div className={miniCartClass}>
+          <MiniCart />
         </div>
         <div className={navClass}>
           <Navigation />
