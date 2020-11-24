@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Logo } from '../images/Images';
-
 import './SingleProduct.scss';
-import { productListMock } from '../../assets/mock/ProductListMock';
 
 const SingleProduct = props => {
   return (
@@ -31,3 +28,20 @@ const SingleProduct = props => {
 };
 
 export default SingleProduct;
+
+SingleProduct.propTypes = {
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number,
+  specialPrice: PropTypes.number,
+};
+
+SingleProduct.defaultProps = {
+  id: 999,
+  image:
+    'https://staging-shop3.hellyhansen.com/media/catalog/product/placeholder/default/HH.png',
+  name: 'No product name',
+  price: 0,
+  specialPrice: 0,
+};
