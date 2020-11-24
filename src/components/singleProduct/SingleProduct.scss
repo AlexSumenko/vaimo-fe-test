@@ -2,7 +2,6 @@
 
 .product {
   &__image {
-    margin: 1rem;
     border: 1px solid $vm-color-grey;
   }
 
@@ -10,14 +9,17 @@
     margin: 16px;
   }
 
-  & span {
+  & > span {
     display: block;
   }
   &__name {
     font-weight: bold;
     margin: 0.8rem 0;
   }
-  &__price {
+  &__price-container {
     margin: 0.8rem 0;
+  }
+  &__special-price {
+    color: $vm-color-red;
   }
 }

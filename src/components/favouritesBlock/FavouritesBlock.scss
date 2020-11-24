@@ -10,12 +10,13 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 48% 48%;
   grid-template-rows: 50% 50%;
+  grid-column-gap: 4%;
 }
 
 @media screen and (min-width: $vm-desktop-breakpoint) {
   .product-grid {
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 22% 22% 22% 22%;
   }
 }
