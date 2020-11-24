@@ -25,11 +25,23 @@
   padding: 4px 8px 0px;
 }
 
-.mobile-navigation {
+.menu {
   background-color: $vm-color-grey;
   padding: 4px 8px 0px;
   margin-left: 8px;
   display: block;
+}
+
+.mobile-navigation {
+  display: block;
+  position: absolute;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+}
+
+.mobile-navigation-hidden {
+  display: none;
 }
 
 .desktop-navigation {
@@ -41,7 +53,7 @@
     height: 1.5rem;
   }
 
-  .mobile-navigation {
+  .menu {
     display: none;
   }
 

@@ -1,0 +1,30 @@
+@import '../../assets/styles/variables';
+
+.navigation-menu {
+  background-color: $vm-color-white;
+  border-bottom: 1px solid $vm-color-grey;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0;
+
+  & a {
+    text-decoration: none;
+    color: $vm-color-black;
+  }
+
+  &:nth-child(1) {
+    border-top: 1px solid $vm-color-grey;
+  }
+
+  &__first-level {
+    margin-left: 2.5%;
+  }
+
+  &__second-level {
+    margin-left: 5%;
+  }
+
+  &__third-level {
+    margin-left: 7.5%;
+  }
+}
