@@ -2,14 +2,20 @@
 
 .navigation-menu {
   background-color: $vm-color-white;
-  border-bottom: 1px solid $vm-color-grey;
   width: 100%;
   text-align: left;
-  padding: 0.5rem 0;
+  font-weight: bold;
 
   & a {
+    display: block;
     text-decoration: none;
     color: $vm-color-black;
+    padding: 0.5rem 0;
+    // border-bottom: 1px solid $vm-color-grey;
+  }
+
+  & div {
+    border-bottom: 1px solid $vm-color-grey;
   }
 
   &:nth-child(1) {

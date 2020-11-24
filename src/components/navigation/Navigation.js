@@ -7,15 +7,53 @@ import './Navigation.scss';
 const Navigation = () => {
   const menuCategories = menuCategoriesMock.map(item => {
     return (
-      <div className='navigation-menu'>
-        <div key={item.id} className='navigation-menu__first-level'>
-          <a href={item.link}>{item.name.toUpperCase()}</a>
+      <>
+        <div>
+          <a
+            key={item.id}
+            className='navigation-menu__first-level'
+            href={item.link}
+          >
+            {item.name.toUpperCase()}
+          </a>
         </div>
-      </div>
+        {item.children
+          ? item.children.map(childItem => {
+              return (
+                <>
+                  <div>
+                    <a
+                      key={childItem.id}
+                      className='navigation-menu__second-level'
+                      href={childItem.link}
+                    >
+                      {childItem.name.toUpperCase()}
+                    </a>
+                  </div>
+                  {childItem.children
+                    ? childItem.children.map(subChildItem => {
+                        return (
+                          <div>
+                            <a
+                              key={subChildItem.id}
+                              className='navigation-menu__third-level'
+                              href={subChildItem.link}
+                            >
+                              {subChildItem.name.toUpperCase()}
+                            </a>
+                          </div>
+                        );
+                      })
+                    : null}
+                </>
+              );
+            })
+          : null}
+      </>
     );
   });
 
-  return <div>{menuCategories}</div>;
+  return <div class='navigation-menu'>{menuCategories}</div>;
 };
 
 export default Navigation;
