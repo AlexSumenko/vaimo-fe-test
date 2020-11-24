@@ -7,15 +7,17 @@ import { productListMock } from '../../assets/mock/ProductListMock';
 import './FavouritesBlock.scss';
 
 const FavouritesBlock = () => {
-  const productList = productListMock.map(product => (
-    <SingleProduct
-      key={product.id}
-      name={product.name}
-      image={product.image}
-      price={product.price}
-      specialPrice={product.specialPrice}
-    />
-  ));
+  const productList = productListMock
+    .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
+    .map(product => (
+      <SingleProduct
+        key={product.id}
+        name={product.name}
+        image={product.image}
+        price={product.price}
+        specialPrice={product.specialPrice}
+      />
+    ));
 
   return (
     <>
