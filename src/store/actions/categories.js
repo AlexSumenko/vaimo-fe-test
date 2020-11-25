@@ -14,7 +14,7 @@ export const getCategories = () => {
       .then(res => {
         const fetchedCategories = [];
         for (let key in res) {
-          fetchedCategories.push({ ...res[key] });
+          fetchedCategories.push({ ...res[key], backendId: key });
         }
         dispatch(saveCategoriesToStore(fetchedCategories));
       })

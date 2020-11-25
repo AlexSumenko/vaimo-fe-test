@@ -14,7 +14,7 @@ export const getProducts = () => {
       .then(res => {
         const fetchedProducts = [];
         for (let key in res) {
-          fetchedProducts.push({ ...res[key] });
+          fetchedProducts.push({ ...res[key], backendId: key });
         }
         dispatch(saveProductsToStore(fetchedProducts));
       })

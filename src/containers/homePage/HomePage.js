@@ -11,7 +11,7 @@ import WelcomeText from '../../components/welcomeText/WelcomeText';
 import './HomePage.scss';
 
 const HomePage = props => {
-  const { setProducts, setCategories } = props;
+  const { setProducts, setCategories, setMiniCartProducts } = props;
 
   useEffect(() => {
     setProducts();
@@ -20,6 +20,10 @@ const HomePage = props => {
   useEffect(() => {
     setCategories();
   }, [setCategories]);
+
+  useEffect(() => {
+    setMiniCartProducts();
+  }, [setMiniCartProducts]);
 
   return (
     <>
@@ -40,6 +44,7 @@ const dispatchStateToProps = dispatch => {
   return {
     setProducts: () => dispatch(actions.getProducts()),
     setCategories: () => dispatch(actions.getCategories()),
+    setMiniCartProducts: () => dispatch(actions.getMiniCartProducts()),
   };
 };
 
