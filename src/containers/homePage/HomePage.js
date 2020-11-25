@@ -16,6 +16,7 @@ const HomePage = props => {
     setCategories,
     setMiniCartProducts,
     addProductToMiniCart,
+    addSubscriber,
   } = props;
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const HomePage = props => {
           addProductToCart={product => addProductToMiniCart(product)}
         />
       </div>
-      <Footer />
+      <Footer addSubscriber={addSubscriber} />
     </>
   );
 };
@@ -54,6 +55,8 @@ const dispatchStateToProps = dispatch => {
     setMiniCartProducts: () => dispatch(actions.getMiniCartProducts()),
     addProductToMiniCart: product =>
       dispatch(actions.addMiniCartProduct(product)),
+    addSubscriber: subscriberEmail =>
+      dispatch(actions.addSubscriber(subscriberEmail)),
   };
 };
 

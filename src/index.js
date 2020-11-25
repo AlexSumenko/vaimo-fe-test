@@ -11,11 +11,13 @@ import thunk from 'redux-thunk';
 import categoriesReducer from './store/reducers/categories';
 import miniCartProductsReducer from './store/reducers/miniCartProducts';
 import productsReducer from './store/reducers/products';
+import subscribersReducer from './store/reducers/subscriptions';
 
 const rootReducer = combineReducers({
   prd: productsReducer,
   cat: categoriesReducer,
   minicart: miniCartProductsReducer,
+  subscr: subscribersReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

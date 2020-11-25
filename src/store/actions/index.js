@@ -7,3 +7,5 @@ export {
 } from './miniCartProducts';
 
 export { getCategories } from './categories';
+
+export { addSubscriber } from './subscriptions';
