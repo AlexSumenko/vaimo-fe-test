@@ -19,12 +19,8 @@ const Navigation = () => {
   const menuCategories = menuCategoriesMock.map(item => {
     return (
       <>
-        <div>
-          <a
-            key={item.id}
-            className='navigation-menu__first-level'
-            href={item.link}
-          >
+        <div key={item.id}>
+          <a className='navigation-menu__first-level' href={item.link}>
             {item.name.toUpperCase()}
           </a>
         </div>
@@ -32,9 +28,8 @@ const Navigation = () => {
           ? item.children.map(childItem => {
               return (
                 <>
-                  <div>
+                  <div key={childItem.id}>
                     <a
-                      key={childItem.id}
                       className='navigation-menu__second-level'
                       href={childItem.link}
                     >
@@ -44,9 +39,8 @@ const Navigation = () => {
                   {childItem.children
                     ? childItem.children.map(subChildItem => {
                         return (
-                          <div>
+                          <div key={subChildItem.id}>
                             <a
-                              key={subChildItem.id}
                               className='navigation-menu__third-level'
                               href={subChildItem.link}
                             >
@@ -64,7 +58,7 @@ const Navigation = () => {
     );
   });
 
-  return <div class='navigation-menu'>{menuCategories}</div>;
+  return <div className='navigation-menu'>{menuCategories}</div>;
 };
 
 export default Navigation;
