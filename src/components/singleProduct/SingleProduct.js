@@ -10,8 +10,8 @@ const SingleProduct = props => {
         <img
           src={props.image}
           className='product__image-image'
-          height='160px'
-          width='160px'
+          height='120rem'
+          width='120rem'
           alt='Product'
         />
       </div>

@@ -10,17 +10,33 @@ const Footer = () => {
       <div className='content-width footer-content'>
         <div className='footer__section'>
           <span className='footer__section-header'>TOP CATEGORIES</span>
-          <span className='footer__section-subheader'>WOMEN</span>
-          <span className='footer__section-subheader'>MEN</span>
-          <span className='footer__section-subheader'>JUNIOR</span>
-          <span className='footer__section-subheader'>ACCESSORIES</span>
+          <a href='#' className='footer__section-subheader'>
+            WOMEN
+          </a>
+          <a href='#' className='footer__section-subheader'>
+            MEN
+          </a>
+          <a href='#' className='footer__section-subheader'>
+            JUNIOR
+          </a>
+          <a href='#' className='footer__section-subheader'>
+            ACCESSORIES
+          </a>
         </div>
         <div className='footer__section'>
           <span className='footer__section-header'>CUSTOMER SERVICE</span>
-          <span className='footer__section-subheader'>RETURNS</span>
-          <span className='footer__section-subheader'>SHIPPING</span>
-          <span className='footer__section-subheader'>ABOUT US</span>
-          <span className='footer__section-subheader'>CONTACT US</span>
+          <a href='#' className='footer__section-subheader'>
+            RETURNS
+          </a>
+          <a href='#' className='footer__section-subheader'>
+            SHIPPING
+          </a>
+          <a href='#' className='footer__section-subheader'>
+            ABOUT US
+          </a>
+          <a href='#' className='footer__section-subheader'>
+            CONTACT US
+          </a>
         </div>
         <div className='footer__section'>
           <span className='footer__section-header'>NEWSLETTER SUBSCRIBE</span>
