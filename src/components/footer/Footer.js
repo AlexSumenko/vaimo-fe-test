@@ -7,6 +7,12 @@ import './Footer.scss';
 const Footer = props => {
   const [emailValue, setEmailValue] = useState('');
   const [loadingState, setLoadingState] = useState(false);
+  const [inputClasses, setInputClasses] = useState(['newsletter-form__input']);
+
+  const validateEmailFormat = email => {
+    const expression = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    return expression.test(String(email).toLowerCase());
+  };
 
   const updateEmailField = event => {
     event.preventDefault();
@@ -15,10 +21,23 @@ const Footer = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setLoadingState(true);
-    props.addSubscriber(emailValue);
-    setLoadingState(false);
-    setEmailValue('');
+
+    if (validateEmailFormat(emailValue)) {
+      setLoadingState(true);
+      props.addSubscriber(emailValue);
+      setLoadingState(false);
+      setEmailValue('');
+    } else {
+      setInputClasses(['newsletter-form__input', 'invalid-email']);
+    }
+  };
+
+  const clearInvalidStyle = event => {
+    event.preventDefault();
+
+    if (inputClasses.includes('invalid-email')) {
+      setInputClasses(['newsletter-form__input']);
+    }
   };
 
   return (
@@ -61,11 +80,12 @@ const Footer = props => {
               <EmailIcon width='16px' height='16px' alt='Email icon' />
             </div>
             <input
-              className='newsletter-form__input'
+              className={inputClasses.join(' ')}
               type='email'
               placeholder='Enter your email address'
               value={emailValue}
               onChange={e => updateEmailField(e)}
+              onFocus={e => clearInvalidStyle(e)}
             ></input>
             <button
               className='subscribe-button'
