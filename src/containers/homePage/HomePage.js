@@ -11,11 +11,15 @@ import WelcomeText from '../../components/welcomeText/WelcomeText';
 import './HomePage.scss';
 
 const HomePage = props => {
-  const { setProducts } = props;
+  const { setProducts, setCategories } = props;
 
   useEffect(() => {
     setProducts();
   }, [setProducts]);
+
+  useEffect(() => {
+    setCategories();
+  }, [setCategories]);
 
   return (
     <>
@@ -35,6 +39,7 @@ const HomePage = props => {
 const dispatchStateToProps = dispatch => {
   return {
     setProducts: () => dispatch(actions.getProducts()),
+    setCategories: () => dispatch(actions.getCategories()),
   };
 };
 
