@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 import MiniCart from '../miniCart/MiniCart';
 import Navigation from '../navigation/Navigation';
@@ -6,7 +8,7 @@ import { Logo, CartIcon, MenuIcon } from '../images/Images';
 
 import './Header.scss';
 
-const Header = () => {
+const Header = ({ deleteProductFromMiniCart }) => {
   const [navClass, setNavClass] = useState('mobile-navigation--hidden');
   const [miniCartClass, setMiniCartClass] = useState('mini-cart--hidden');
 
@@ -49,7 +51,9 @@ const Header = () => {
           </div>
         </div>
         <div className={miniCartClass}>
-          <MiniCart />
+          <MiniCart
+            deleted={productId => deleteProductFromMiniCart(productId)}
+          />
         </div>
         <div className={navClass}>
           <Navigation />
@@ -60,4 +64,11 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteProductFromMiniCart: productId =>
+      dispatch(actions.deleteMiniCartProduct(productId)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Header);

@@ -11,7 +11,13 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ADD_MINICART_PRODUCT:
       return { ...state, miniCartProducts: action.miniCartProducts };
     case actionTypes.DELETE_MINICART_PRODUCT:
-      return { ...state, miniCartProducts: action.miniCartProducts };
+      const newMiniCartProducts = [...state.miniCartProducts].filter(
+        product => product.backendId !== action.productId
+      );
+      return {
+        ...state,
+        miniCartProducts: newMiniCartProducts,
+      };
     default:
       return state;
   }

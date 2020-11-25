@@ -1,5 +1,9 @@
 export { getProducts } from './products';
 
-export { getMiniCartProducts } from './miniCartProducts';
+export {
+  getMiniCartProducts,
+  addMiniCartProduct,
+  deleteMiniCartProduct,
+} from './miniCartProducts';
 
 export { getCategories } from './categories';

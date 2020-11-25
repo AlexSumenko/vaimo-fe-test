@@ -8,6 +8,13 @@ const saveMiniCartProductsToStore = miniCartProducts => {
   };
 };
 
+const removeMiniCartProductFromStore = productId => {
+  return {
+    type: actionTypes.DELETE_MINICART_PRODUCT,
+    productId: productId,
+  };
+};
+
 export const getMiniCartProducts = () => {
   return dispatch => {
     httpRequest('miniCartProducts.json', 'GET')
@@ -19,5 +26,18 @@ export const getMiniCartProducts = () => {
         dispatch(saveMiniCartProductsToStore(fetchedMiniCartProducts));
       })
       .catch(err => console.log(err));
+  };
+};
+
+export const deleteMiniCartProduct = productid => {
+  return dispatch => {
+    httpRequest(`/miniCartProducts/${productid}.json`, 'DELETE');
+    dispatch(removeMiniCartProductFromStore(productid));
+  };
+};
+
+export const addMiniCartProduct = product => {
+  return dispatch => {
+    httpRequest('/miniCartProduct.json', 'POST', product);
   };
 };

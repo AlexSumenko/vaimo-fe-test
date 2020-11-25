@@ -5,43 +5,42 @@ import { DeleteIcon } from '../images/Images';
 
 import './MiniCart.scss';
 
-const MiniCart = ({ miniCartProducts }) => {
+const MiniCart = ({ miniCartProducts, deleted }) => {
   let miniCartProductList = [];
   if (miniCartProducts && miniCartProducts.length > 0) {
-    miniCartProductList = miniCartProducts
-      .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
-      .map(product => {
-        return (
-          <div
-            key={product.id}
-            className='mini-cart__product-row content-width'
-          >
-            <div className='mini-cart__product'>
-              <img
-                src={product.image}
-                height='60rem'
-                width='60rem'
-                alt='Product in minicart'
-              />
-              <div className='mini-cart__product-info'>
-                <span>
-                  <strong>{product.name}</strong>
-                </span>
-                <span>
-                  1 x{' '}
-                  {product.specialPrice ? product.specialPrice : product.price}
-                </span>
-              </div>
-            </div>
-            <div>
-              <DeleteIcon />
+    miniCartProductList = miniCartProducts.map(product => {
+      return (
+        <div key={product.id} className='mini-cart__product-row content-width'>
+          <div className='mini-cart__product'>
+            <img
+              src={product.image}
+              height='60rem'
+              width='60rem'
+              alt='Product in minicart'
+            />
+            <div className='mini-cart__product-info'>
+              <span>
+                <strong>{product.name.toUpperCase()}</strong>
+              </span>
+              <span>
+                1 x{' '}
+                {product.specialPrice ? product.specialPrice : product.price}
+              </span>
             </div>
           </div>
-        );
-      });
+          <div
+            className='mini-cart__delete-icon'
+            onClick={deleted.bind(this, product.backendId)}
+          >
+            <DeleteIcon />
+          </div>
+        </div>
+      );
+    });
   }
   return <div className='mini-cart__container'>{miniCartProductList}</div>;
 };
+
 const mapStateToProps = state => {
   return {
     miniCartProducts: state.minicart.miniCartProducts,
