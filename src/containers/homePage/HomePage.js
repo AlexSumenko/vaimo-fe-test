@@ -11,7 +11,12 @@ import WelcomeText from '../../components/welcomeText/WelcomeText';
 import './HomePage.scss';
 
 const HomePage = props => {
-  const { setProducts, setCategories, setMiniCartProducts } = props;
+  const {
+    setProducts,
+    setCategories,
+    setMiniCartProducts,
+    addProductToMiniCart,
+  } = props;
 
   useEffect(() => {
     setProducts();
@@ -33,7 +38,9 @@ const HomePage = props => {
         <WelcomeText />
       </div>
       <div className='content-width'>
-        <FavouritesBlock />
+        <FavouritesBlock
+          addProductToCart={product => addProductToMiniCart(product)}
+        />
       </div>
       <Footer />
     </>
@@ -45,6 +52,8 @@ const dispatchStateToProps = dispatch => {
     setProducts: () => dispatch(actions.getProducts()),
     setCategories: () => dispatch(actions.getCategories()),
     setMiniCartProducts: () => dispatch(actions.getMiniCartProducts()),
+    addProductToMiniCart: product =>
+      dispatch(actions.addMiniCartProduct(product)),
   };
 };
 

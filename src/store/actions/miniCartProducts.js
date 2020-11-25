@@ -15,6 +15,13 @@ const removeMiniCartProductFromStore = productId => {
   };
 };
 
+const addMiniCartProductToStore = product => {
+  return {
+    type: actionTypes.ADD_MINICART_PRODUCT,
+    product: product,
+  };
+};
+
 export const getMiniCartProducts = () => {
   return dispatch => {
     httpRequest('miniCartProducts.json', 'GET')
@@ -38,6 +45,7 @@ export const deleteMiniCartProduct = productid => {
 
 export const addMiniCartProduct = product => {
   return dispatch => {
-    httpRequest('/miniCartProduct.json', 'POST', product);
+    httpRequest('/miniCartProducts.json', 'POST', product);
+    dispatch(addMiniCartProductToStore(product));
   };
 };

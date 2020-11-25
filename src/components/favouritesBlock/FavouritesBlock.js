@@ -5,7 +5,7 @@ import SingleProduct from '../singleProduct/SingleProduct';
 
 import './FavouritesBlock.scss';
 
-const FavouritesBlock = ({ products }) => {
+const FavouritesBlock = ({ products, addProductToCart }) => {
   let productList = [];
   if (products && products.length > 0) {
     productList = products
@@ -17,6 +17,7 @@ const FavouritesBlock = ({ products }) => {
           image={product.image}
           price={product.price}
           specialPrice={product.specialPrice}
+          clicked={addProductToCart.bind(this, product)}
         />
       ));
   }

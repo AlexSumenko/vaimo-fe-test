@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import './SingleProduct.scss';
 
 const SingleProduct = props => {
+  // const handleClick = e => {
+  //   e.preventDefault();
+  //   props.added();
+  // };
+
   return (
     <div className='product'>
       <div className='product__image'>
@@ -30,7 +35,11 @@ const SingleProduct = props => {
           </>
         )}
       </div>
-      <button type='button' className='subscribe-button'>
+      <button
+        type='button'
+        className='subscribe-button'
+        onClick={props.clicked}
+      >
         ADD TO CART
       </button>
     </div>
@@ -45,6 +54,7 @@ SingleProduct.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number,
   specialPrice: PropTypes.number,
+  added: PropTypes.func,
 };
 
 SingleProduct.defaultProps = {
