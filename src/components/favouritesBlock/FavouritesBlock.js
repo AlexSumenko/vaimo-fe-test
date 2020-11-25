@@ -1,24 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import SingleProduct from '../singleProduct/SingleProduct';
 
-import { productListMock } from '../../assets/mock/ProductListMock';
-
 import './FavouritesBlock.scss';
 
-const FavouritesBlock = () => {
-  const productList = productListMock
-    .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
-    .map(product => (
-      <SingleProduct
-        key={product.id}
-        name={product.name}
-        image={product.image}
-        price={product.price}
-        specialPrice={product.specialPrice}
-      />
-    ));
-
+const FavouritesBlock = ({ products }) => {
+  let productList = [];
+  if (products && products.length > 0) {
+    productList = products
+      .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
+      .map(product => (
+        <SingleProduct
+          key={product.id}
+          name={product.name}
+          image={product.image}
+          price={product.price}
+          specialPrice={product.specialPrice}
+        />
+      ));
+  }
   return (
     <>
       <div className='favourites-block'>
@@ -29,4 +30,10 @@ const FavouritesBlock = () => {
   );
 };
 
-export default FavouritesBlock;
+const mapStateToProps = state => {
+  return {
+    products: state.prd.products,
+  };
+};
+
+export default connect(mapStateToProps)(FavouritesBlock);

@@ -3,7 +3,7 @@ import { httpRequest } from '../../utils/fetch';
 
 const saveProductsToStore = products => {
   return {
-    type: actionTypes.getProducts,
+    type: actionTypes.GET_PRODUCTS,
     products: products,
   };
 };

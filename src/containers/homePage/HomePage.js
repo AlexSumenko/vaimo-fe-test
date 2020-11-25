@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 import FavouritesBlock from '../../components/favouritesBlock/FavouritesBlock';
 import Footer from '../../components/footer/Footer';
@@ -8,7 +10,13 @@ import WelcomeText from '../../components/welcomeText/WelcomeText';
 
 import './HomePage.scss';
 
-const HomePage = () => {
+const HomePage = props => {
+  const { setProducts } = props;
+
+  useEffect(() => {
+    setProducts();
+  }, [setProducts]);
+
   return (
     <>
       <Header />
@@ -24,4 +32,10 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+const dispatchStateToProps = dispatch => {
+  return {
+    setProducts: () => dispatch(actions.getProducts()),
+  };
+};
+
+export default connect(null, dispatchStateToProps)(HomePage);
