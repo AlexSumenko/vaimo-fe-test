@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import logoImage from '../../assets/images/vaimo-logo.png';
 import menuIcon from '../../assets/images/menu-icon.png';
 import emailIcon from '../../assets/images/email-icon.png';
+import xIcon from '../../assets/images/x-icon.png';
 
 import './Images.scss';
 
@@ -64,6 +65,17 @@ export const EmailIcon = props => {
   );
 };
 
+export const DeleteIcon = props => {
+  return (
+    <img
+      src={xIcon}
+      width={props.width}
+      height={props.height}
+      alt={props.alt}
+    />
+  );
+};
+
 Logo.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -108,4 +120,16 @@ EmailIcon.defaultProps = {
   width: '20px',
   height: '20px',
   alt: 'Email Icon',
+};
+
+DeleteIcon.propTypes = {
+  width: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+};
+
+DeleteIcon.defaultProps = {
+  width: '20px',
+  height: '20px',
+  alt: 'Delete Icon',
 };

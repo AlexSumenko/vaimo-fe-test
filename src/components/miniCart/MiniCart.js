@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { DeleteIcon } from '../images/Images';
 import { productListMock } from '../../assets/mock/ProductListMock';
 
 import './MiniCart.scss';
@@ -10,18 +11,27 @@ const MiniCart = () => {
     .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
     .map(product => {
       return (
-        <div key={product.id} className='mini-cart__product-row'>
-          <img
-            src={product.image}
-            height='40px'
-            width='40px'
-            alt='Product in minicart'
-          />
-          <span>{product.name}</span>
-          <span>
-            {product.specialPrice ? product.specialPrice : product.price}
-          </span>
-          <div>X</div>
+        <div key={product.id} className='mini-cart__product-row content-width'>
+          <div className='mini-cart__product'>
+            <img
+              src={product.image}
+              height='60rem'
+              width='60rem'
+              alt='Product in minicart'
+            />
+            <div className='mini-cart__product-info'>
+              <span>
+                <strong>{product.name}</strong>
+              </span>
+              <span>
+                1 x{' '}
+                {product.specialPrice ? product.specialPrice : product.price}
+              </span>
+            </div>
+          </div>
+          <div>
+            <DeleteIcon />
+          </div>
         </div>
       );
     });

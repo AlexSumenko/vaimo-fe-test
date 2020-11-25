@@ -12,4 +12,18 @@
 .mini-cart__product-row {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mini-cart__product {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
 }
