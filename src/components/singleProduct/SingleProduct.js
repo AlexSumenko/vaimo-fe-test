@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../button/Button';
+
 import './SingleProduct.scss';
 
 const SingleProduct = props => {
-  // const handleClick = e => {
-  //   e.preventDefault();
-  //   props.added();
-  // };
-
   return (
     <div className='product'>
       <div className='product__image'>
@@ -35,13 +32,20 @@ const SingleProduct = props => {
           </>
         )}
       </div>
-      <button
+      {/* <button
         type='button'
         className='subscribe-button'
         onClick={props.clicked}
       >
         ADD TO CART
-      </button>
+      </button> */}
+      <Button
+        type='button'
+        btnColor='vm-green'
+        clicked={props.clicked.bind(this)}
+      >
+        ADD TO CART
+      </Button>
     </div>
   );
 };

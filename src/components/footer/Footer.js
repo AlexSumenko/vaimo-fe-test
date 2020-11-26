@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import Button from '../button/Button';
+
+import { validateEmailFormat } from '../../utils/helpers';
+
 import { EmailIcon } from '../images/Images';
 
 import './Footer.scss';
@@ -8,11 +12,6 @@ const Footer = props => {
   const [emailValue, setEmailValue] = useState('');
   const [loadingState, setLoadingState] = useState(false);
   const [inputClasses, setInputClasses] = useState(['newsletter-form__input']);
-
-  const validateEmailFormat = email => {
-    const expression = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    return expression.test(String(email).toLowerCase());
-  };
 
   const updateEmailField = event => {
     event.preventDefault();
@@ -27,7 +26,7 @@ const Footer = props => {
       props.addSubscriber(emailValue);
       setLoadingState(false);
       setEmailValue('');
-    } else {
+    } else if (!inputClasses.includes('invalid-email')) {
       setInputClasses(['newsletter-form__input', 'invalid-email']);
     }
   };
@@ -87,13 +86,13 @@ const Footer = props => {
               onChange={e => updateEmailField(e)}
               onFocus={e => clearInvalidStyle(e)}
             ></input>
-            <button
-              className='subscribe-button'
+            <Button
               type='button'
-              onClick={e => handleSubmit(e)}
+              btnColor='vm-green'
+              clicked={e => handleSubmit(e)}
             >
               {loadingState ? 'SUBSCRIPTION PROCESSING' : 'SUBSCRIBE'}
-            </button>
+            </Button>
           </form>
         </div>
       </div>

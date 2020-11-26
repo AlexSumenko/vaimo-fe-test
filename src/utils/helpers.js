@@ -1,0 +1,4 @@
+export const validateEmailFormat = email => {
+  const regexp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  return regexp.test(String(email).toLowerCase());
+};

@@ -2,6 +2,7 @@
 
 .favourites-block {
   margin-bottom: 2rem;
+
   &__header {
     color: $vm-color-grey;
     margin-bottom: 1rem;
@@ -11,7 +12,6 @@
 .product-grid {
   display: grid;
   grid-template-columns: 48% 48%;
-  grid-template-rows: 50% 50%;
   grid-column-gap: 4%;
 }
 

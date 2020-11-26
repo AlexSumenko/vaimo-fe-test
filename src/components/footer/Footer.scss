@@ -16,24 +16,25 @@
   }
 }
 
-.footer__section-header {
-  font-weight: bold;
-  margin: 0.8rem 0;
-}
+.footer__section {
+  &-header {
+    font-weight: bold;
+    margin: 0.8rem 0;
+  }
 
-.footer__section-subheader {
-  margin: 0.2rem 0;
-  font-size: 12px;
+  &-subheader {
+    margin: 0.2rem 0;
+    font-size: 12px;
+  }
 }
 
 .newsletter-form {
   display: flex;
   flex-direction: column;
-  text-align: left;
   position: relative;
   &__input {
     padding: 6px 0px 6px 24px;
-    border: none;
+    border: 1px solid $vm-color-black;
     outline: none;
     margin-bottom: 0.1rem;
     border-radius: 4px;
@@ -44,21 +45,6 @@
   position: absolute;
   top: 6px;
   left: 4px;
-}
-
-.subscribe-button {
-  color: $vm-color-white;
-  background-color: $vm-color-green;
-  margin: 0.2rem 0 1.2rem 0;
-  padding: 0.2rem 0;
-  font-weight: bold;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  width: 100%;
-  cursor: pointer;
-  // max-width: 200px;
 }
 
 .invalid-email {
