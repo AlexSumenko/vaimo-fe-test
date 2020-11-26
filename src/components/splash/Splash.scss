@@ -2,9 +2,10 @@
 
 .splash {
   position: relative;
-
   color: $vm-color-white;
+
   &__text {
+    font-weight: bold;
     background-color: $vm-color-splash-background;
     position: absolute;
     width: 100%;
@@ -15,12 +16,10 @@
   }
 
   &__header {
-    font-weight: bold;
     font-size: 24px;
   }
 
   &__subheader {
-    font-weight: bold;
     font-size: 12px;
   }
 }

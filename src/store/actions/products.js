@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import { httpRequest } from '../../utils/fetch';
+import { convertObjectToArray } from '../../utils/helpers';
 
 const saveProductsToStore = products => {
   return {
@@ -12,10 +13,7 @@ export const getProducts = () => {
   return dispatch => {
     httpRequest('products.json', 'GET')
       .then(res => {
-        const fetchedProducts = [];
-        for (let key in res) {
-          fetchedProducts.push({ ...res[key], backendId: key });
-        }
+        const fetchedProducts = convertObjectToArray(res);
         dispatch(saveProductsToStore(fetchedProducts));
       })
       .catch(err => console.log(err));

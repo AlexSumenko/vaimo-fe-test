@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Image from '../image/Image';
+
 import { DeleteIcon } from '../images/Images';
 
 import './MiniCart.scss';
@@ -12,7 +14,7 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
       return (
         <div key={product.id} className='mini-cart__product-row content-width'>
           <div className='mini-cart__product'>
-            <img
+            <Image
               src={product.image}
               height='60rem'
               width='60rem'
@@ -38,7 +40,7 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
       );
     });
   }
-  return <div className='mini-cart__container'>{miniCartProductList}</div>;
+  return <>{miniCartProductList}</>;
 };
 
 const mapStateToProps = state => {

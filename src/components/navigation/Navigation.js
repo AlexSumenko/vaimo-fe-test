@@ -4,16 +4,6 @@ import { connect } from 'react-redux';
 import './Navigation.scss';
 
 const Navigation = ({ categories }) => {
-  //   const categoryBuilder = (catObj, itemClass) =>
-  //     catObj.map(item => {
-  //       return (
-  //         <div>
-  //           <a key={item.id} className={itemClass} href={item.link}>
-  //             {item.name.toUpperCase()}
-  //           </a>
-  //         </div>
-  //       );
-  //     });
   let menuCategories = [];
   if (categories && categories.length > 0) {
     menuCategories = categories.map(item => {

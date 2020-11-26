@@ -11,7 +11,7 @@ const Splash = () => {
       <div className='splash__text'>
         <p className='splash__header'>GET READY FOR THE AUTUMN</p>
         <p className='splash__subheader'>
-          WE HAVE PREPARED EVERYTTHING FOR YOU!
+          WE HAVE PREPARED EVERYTHING FOR YOU!
         </p>
       </div>
     </div>
