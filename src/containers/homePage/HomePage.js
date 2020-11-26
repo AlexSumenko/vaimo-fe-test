@@ -5,8 +5,8 @@ import * as actions from '../../store/actions/index';
 import FavouritesBlock from '../../components/favouritesBlock/FavouritesBlock';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
-import Splash from '../../components/splash/Splash';
-import WelcomeText from '../../components/welcomeText/WelcomeText';
+import Splash from '../../components/shared/splash/Splash';
+import WelcomeText from '../../components/shared/welcomeText/WelcomeText';
 
 import './HomePage.scss';
 

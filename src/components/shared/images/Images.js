@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Image from '../image/Image';
+import Image from './image/Image';
 
-import logoImage from '../../assets/images/vaimo-logo.png';
-import menuIcon from '../../assets/images/menu-icon.png';
-import emailIcon from '../../assets/images/email-icon.png';
-import xIcon from '../../assets/images/x-icon.png';
+import logoImage from '../../../assets/images/vaimo-logo.png';
+import menuIcon from '../../../assets/images/menu-icon.png';
+import emailIcon from '../../../assets/images/email-icon.png';
+import xIcon from '../../../assets/images/x-icon.png';
 
 export const Logo = props => {
   return <Image src={logoImage} {...props} />;

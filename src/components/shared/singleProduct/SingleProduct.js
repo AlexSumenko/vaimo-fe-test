@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
-import Image from '../image/Image';
+import Image from '../images/image/Image';
 
 import './SingleProduct.scss';
 

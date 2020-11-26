@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Image from '../image/Image';
+import Image from '../../shared/images/image/Image';
 
-import { DeleteIcon } from '../images/Images';
+import { DeleteIcon } from '../../shared/images/Images';
 
 import './MiniCart.scss';
 

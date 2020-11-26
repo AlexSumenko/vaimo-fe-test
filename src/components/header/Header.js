@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 
-import MiniCart from '../miniCart/MiniCart';
-import Navigation from '../navigation/Navigation';
-import { Logo, CartIcon, MenuIcon } from '../images/Images';
+import MiniCart from './miniCart/MiniCart';
+import Navigation from './navigation/Navigation';
+import { Logo, CartIcon, MenuIcon } from '../shared/images/Images';
 
 import './Header.scss';
 

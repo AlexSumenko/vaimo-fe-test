@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import Button from '../button/Button';
-import InputField from '../inputField/InputField';
+import Button from '../shared/button/Button';
+import InputField from '../shared/inputField/InputField';
 
 import { validateEmailFormat } from '../../utils/helpers';
 
-import { EmailIcon } from '../images/Images';
+import { EmailIcon } from '../shared/images/Images';
 
 import './Footer.scss';
 
