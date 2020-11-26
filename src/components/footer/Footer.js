@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Button from '../button/Button';
+import InputField from '../inputField/InputField';
 
 import { validateEmailFormat } from '../../utils/helpers';
 
@@ -78,14 +79,14 @@ const Footer = props => {
             <div className='email-icon'>
               <EmailIcon width='16px' height='16px' alt='Email icon' />
             </div>
-            <input
-              className={inputClasses.join(' ')}
+            <InputField
+              inputClasses={inputClasses.join(' ')}
               type='email'
               placeholder='Enter your email address'
               value={emailValue}
-              onChange={e => updateEmailField(e)}
-              onFocus={e => clearInvalidStyle(e)}
-            ></input>
+              changed={e => updateEmailField(e)}
+              focused={e => clearInvalidStyle(e)}
+            />
             <Button
               type='button'
               btnColor='vm-green'
