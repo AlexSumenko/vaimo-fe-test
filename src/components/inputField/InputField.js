@@ -17,3 +17,16 @@ const InputField = props => {
 };
 
 export default InputField;
+
+InputField.propTypes = {
+  type: PropTypes.string.isRequired,
+  inputClasses: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  changed: PropTypes.func,
+  focused: PropTypes.func,
+};
+InputField.defaultProps = {
+  type: 'input',
+  inputClasses: 'newsletter-form__input',
+};
