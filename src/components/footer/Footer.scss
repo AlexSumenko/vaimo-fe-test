@@ -59,12 +59,18 @@
     &-form {
       flex-direction: row;
       align-items: center;
-      justify-items: start;
+      align-content: flex-start;
 
       & input {
         margin-right: 1rem;
+        margin-bottom: 1rem;
         width: 80%;
       }
     }
+  }
+
+  .email-icon {
+    top: 11px;
+    left: 5px;
   }
 }

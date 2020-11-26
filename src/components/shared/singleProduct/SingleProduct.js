@@ -9,12 +9,12 @@ import './SingleProduct.scss';
 const SingleProduct = props => {
   return (
     <div className='product'>
-      <div className='product__image'>
+      <div className='product__image-container'>
         <Image
-          imageClasses='product__image-image'
+          imageClasses='product__image'
           src={props.image}
-          height='120rem'
-          width='120rem'
+          height='180rem'
+          width='180rem'
           alt='Product'
         />
       </div>
