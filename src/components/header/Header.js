@@ -9,6 +9,8 @@ import { Logo, CartIcon, MenuIcon } from '../images/Images';
 import './Header.scss';
 
 const Header = ({ deleteProductFromMiniCart }) => {
+  // TODO Would be awesome to use useReducer to toggle classes dependent on each other (blush)
+
   const [navClass, setNavClass] = useState('mobile-navigation--hidden');
   const [miniCartClass, setMiniCartClass] = useState('mini-cart--hidden');
 
@@ -35,12 +37,7 @@ const Header = ({ deleteProductFromMiniCart }) => {
       <div className='top-background'></div>
       <div className='content-width'>
         <div className='header__row'>
-          <Logo
-            className='logo'
-            width='40%'
-            height='40rem'
-            alt='Website Logo'
-          />
+          <Logo width='40%' height='40rem' alt='Website Logo' />
           <div className='header__icons'>
             <div className='cart' onClick={flipMiniCartClass}>
               <CartIcon width='20px' height='20px' />

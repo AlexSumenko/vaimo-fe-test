@@ -1,22 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import Image from '../image/Image';
 
 import logoImage from '../../assets/images/vaimo-logo.png';
 import menuIcon from '../../assets/images/menu-icon.png';
 import emailIcon from '../../assets/images/email-icon.png';
 import xIcon from '../../assets/images/x-icon.png';
 
-import './Images.scss';
-
 export const Logo = props => {
-  return (
-    <img
-      src={logoImage}
-      width={props.width}
-      height={props.height}
-      alt={props.alt}
-    />
-  );
+  return <Image src={logoImage} {...props} />;
+};
+
+export const MenuIcon = props => {
+  return <Image src={menuIcon} {...props} />;
+};
+
+export const EmailIcon = props => {
+  return <Image src={emailIcon} {...props} />;
+};
+
+export const DeleteIcon = props => {
+  return <Image src={xIcon} {...props} />;
 };
 
 export const CartIcon = props => (
@@ -42,94 +46,3 @@ export const CartIcon = props => (
     </g>
   </svg>
 );
-
-export const MenuIcon = props => {
-  return (
-    <img
-      src={menuIcon}
-      width={props.width}
-      height={props.height}
-      alt={props.alt}
-    />
-  );
-};
-
-export const EmailIcon = props => {
-  return (
-    <img
-      src={emailIcon}
-      width={props.width}
-      height={props.height}
-      alt={props.alt}
-    />
-  );
-};
-
-export const DeleteIcon = props => {
-  return (
-    <img
-      src={xIcon}
-      width={props.width}
-      height={props.height}
-      alt={props.alt}
-    />
-  );
-};
-
-Logo.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-};
-
-Logo.defaultProps = {
-  width: '40%',
-  height: '40rem',
-  alt: 'Website Logo',
-};
-
-CartIcon.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-};
-
-CartIcon.defaultProps = {
-  width: '20px',
-  height: '20px',
-};
-
-MenuIcon.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-};
-
-MenuIcon.defaultProps = {
-  width: '20px',
-  height: '20px',
-  alt: 'Menu Icon',
-};
-
-EmailIcon.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-};
-
-EmailIcon.defaultProps = {
-  width: '20px',
-  height: '20px',
-  alt: 'Email Icon',
-};
-
-DeleteIcon.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-};
-
-DeleteIcon.defaultProps = {
-  width: '20px',
-  height: '20px',
-  alt: 'Delete Icon',
-};

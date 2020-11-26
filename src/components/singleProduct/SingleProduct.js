@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
+import Image from '../image/Image';
 
 import './SingleProduct.scss';
 
@@ -9,9 +10,9 @@ const SingleProduct = props => {
   return (
     <div className='product'>
       <div className='product__image'>
-        <img
+        <Image
+          imageClasses='product__image-image'
           src={props.image}
-          className='product__image-image'
           height='120rem'
           width='120rem'
           alt='Product'
@@ -32,13 +33,6 @@ const SingleProduct = props => {
           </>
         )}
       </div>
-      {/* <button
-        type='button'
-        className='subscribe-button'
-        onClick={props.clicked}
-      >
-        ADD TO CART
-      </button> */}
       <Button
         type='button'
         btnColor='vm-green'

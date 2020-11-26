@@ -6,18 +6,20 @@
   background-color: $vm-color-green;
 }
 
-.header__row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
-}
+.header {
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
 
-.header__icons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .cart {

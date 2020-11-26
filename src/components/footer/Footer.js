@@ -9,7 +9,7 @@ import { EmailIcon } from '../images/Images';
 
 import './Footer.scss';
 
-const Footer = props => {
+const Footer = ({ addSubscriber }) => {
   const [emailValue, setEmailValue] = useState('');
   const [loadingState, setLoadingState] = useState(false);
   const [inputClasses, setInputClasses] = useState(['newsletter-form__input']);
@@ -24,7 +24,7 @@ const Footer = props => {
 
     if (validateEmailFormat(emailValue)) {
       setLoadingState(true);
-      props.addSubscriber(emailValue);
+      addSubscriber(emailValue);
       setLoadingState(false);
       setEmailValue('');
     } else if (!inputClasses.includes('invalid-email')) {
