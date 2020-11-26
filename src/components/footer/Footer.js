@@ -73,7 +73,7 @@ const Footer = ({ addSubscriber }) => {
             CONTACT US
           </a>
         </div>
-        <div className='footer__section'>
+        <div className='footer__section newsletter'>
           <span className='footer__section-header'>NEWSLETTER SUBSCRIBE</span>
           <form className='newsletter-form'>
             <div className='email-icon'>

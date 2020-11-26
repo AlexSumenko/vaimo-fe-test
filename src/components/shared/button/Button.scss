@@ -16,3 +16,9 @@
   color: $vm-color-white;
   background-color: $vm-color-green;
 }
+
+@media screen and (min-width: $vm-desktop-breakpoint) {
+  .vm-green-button {
+    max-width: 8rem;
+  }
+}

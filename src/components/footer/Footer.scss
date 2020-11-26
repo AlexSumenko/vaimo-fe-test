@@ -3,6 +3,8 @@
 .footer {
   &-background {
     background-color: $vm-color-grey;
+    display: flex;
+    flex: 1 1 auto;
   }
 
   &-content {
@@ -43,7 +45,26 @@
 }
 
 @media screen and (min-width: $vm-desktop-breakpoint) {
-  .footer-content {
-    flex-direction: row;
+  .footer {
+    &-content {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+    }
+  }
+
+  .newsletter {
+    min-width: 40%;
+
+    &-form {
+      flex-direction: row;
+      align-items: center;
+      justify-items: start;
+
+      & input {
+        margin-right: 1rem;
+        width: 80%;
+      }
+    }
   }
 }
