@@ -17,19 +17,31 @@ const HomePage = props => {
     setMiniCartProducts,
     addProductToMiniCart,
     addSubscriber,
+    removeProductsFromStore,
+    removeCategoriesFromStore,
+    removeMiniCartProductsFromStore,
   } = props;
 
   useEffect(() => {
     setProducts();
-  }, [setProducts]);
+    return () => {
+      removeProductsFromStore();
+    };
+  }, [setProducts, removeProductsFromStore]);
 
   useEffect(() => {
     setCategories();
-  }, [setCategories]);
+    return () => {
+      removeCategoriesFromStore();
+    };
+  }, [setCategories, removeCategoriesFromStore]);
 
   useEffect(() => {
     setMiniCartProducts();
-  }, [setMiniCartProducts]);
+    return () => {
+      removeMiniCartProductsFromStore();
+    };
+  }, [setMiniCartProducts, removeMiniCartProductsFromStore]);
 
   return (
     <>
@@ -57,6 +69,10 @@ const dispatchStateToProps = dispatch => {
       dispatch(actions.addMiniCartProduct(product)),
     addSubscriber: subscriberEmail =>
       dispatch(actions.addSubscriber(subscriberEmail)),
+    removeProductsFromStore: () => dispatch(actions.clearProductsFromStore),
+    removeCategoriesFromStore: () => dispatch(actions.clearCategoriesFromStore),
+    removeMiniCartProductsFromStore: () =>
+      dispatch(actions.clearMiniCartProductsFromStore),
   };
 };
 

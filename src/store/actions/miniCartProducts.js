@@ -47,3 +47,10 @@ export const addMiniCartProduct = product => {
     dispatch(addMiniCartProductToStore(product));
   };
 };
+
+export const clearMiniCartProductsFromStore = () => {
+  return {
+    type: actionTypes.CLEAR_MINICART_PRODUCTS_FROM_STORE,
+    miniCartProducts: [],
+  };
+};

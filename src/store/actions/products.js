@@ -19,3 +19,10 @@ export const getProducts = () => {
       .catch(err => console.log(err));
   };
 };
+
+export const clearProductsFromStore = () => {
+  return {
+    type: actionTypes.CLEAR_PRODUCTS_FROM_STORE,
+    products: [],
+  };
+};

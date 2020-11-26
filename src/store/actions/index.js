@@ -1,11 +1,12 @@
-export { getProducts } from './products';
+export { getProducts, clearProductsFromStore } from './products';
 
 export {
   getMiniCartProducts,
   addMiniCartProduct,
   deleteMiniCartProduct,
+  clearMiniCartProductsFromStore,
 } from './miniCartProducts';
 
-export { getCategories } from './categories';
+export { getCategories, clearCategoriesFromStore } from './categories';
 
 export { addSubscriber } from './subscriptions';

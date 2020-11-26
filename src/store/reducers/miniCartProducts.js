@@ -19,6 +19,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         miniCartProducts: newMiniCartProducts,
       };
+    case actionTypes.CLEAR_MINICART_PRODUCTS_FROM_STORE:
+      return { ...state, miniCartProducts: action.miniCartProducts };
     default:
       return state;
   }

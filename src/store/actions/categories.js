@@ -19,3 +19,10 @@ export const getCategories = () => {
       .catch(err => console.log(err));
   };
 };
+
+export const clearCategoriesFromStore = () => {
+  return {
+    type: actionTypes.CLEAR_CATEGORIES_FROM_STORE,
+    categories: [],
+  };
+};
