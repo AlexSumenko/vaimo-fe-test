@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Button from '../button/Button';
 import Image from '../images/image/Image';
 
+import { CURRENCY_SIGN } from '../../../utils/constants';
+
 import './SingleProduct.scss';
 
 const SingleProduct = props => {
@@ -21,14 +23,18 @@ const SingleProduct = props => {
       <span className='product__name'>{props.name.toUpperCase()}</span>
       <div className='product__price-container'>
         {props.specialPrice <= 0 ? (
-          <span>€ {props.price.toFixed(2)}</span>
+          <span>
+            {CURRENCY_SIGN} {props.price.toFixed(2)}
+          </span>
         ) : (
           <>
             <strike>
-              <span>€ {props.price.toFixed(2)}</span>
+              <span>
+                {CURRENCY_SIGN} {props.price.toFixed(2)}
+              </span>
             </strike>{' '}
             <span className='product__special-price'>
-              € {props.specialPrice.toFixed(2)}
+              {CURRENCY_SIGN} {props.specialPrice.toFixed(2)}
             </span>
           </>
         )}

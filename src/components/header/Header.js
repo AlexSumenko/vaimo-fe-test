@@ -11,6 +11,8 @@ import {
   unitQuantityFormatter,
 } from '../../utils/helpers';
 
+import { CURRENCY_SIGN } from '../../utils/constants';
+
 import './Header.scss';
 
 const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
@@ -52,7 +54,8 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
                 cart
               </span>
               <span className='cart__price'>
-                € {calculateTotalPriceOfProducts(miniCartProducts)}
+                {CURRENCY_SIGN}{' '}
+                {calculateTotalPriceOfProducts(miniCartProducts)}
               </span>
             </div>
             <div className={miniCartClass}>

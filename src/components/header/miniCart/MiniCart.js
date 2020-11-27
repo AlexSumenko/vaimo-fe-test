@@ -5,6 +5,8 @@ import Image from '../../shared/images/image/Image';
 
 import { DeleteIcon } from '../../shared/images/Images';
 
+import { CURRENCY_SIGN } from '../../../utils/constants';
+
 import './MiniCart.scss';
 
 const MiniCart = ({ miniCartProducts, deleted }) => {
@@ -28,7 +30,7 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
                 <strong>{product.name.toUpperCase()}</strong>
               </span>
               <span>
-                1 x{' € '}
+                1 x {`${CURRENCY_SIGN} `}
                 {product.specialPrice
                   ? product.specialPrice.toFixed(2)
                   : product.price.toFixed(2)}
