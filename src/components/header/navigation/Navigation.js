@@ -20,7 +20,7 @@ const Navigation = ({ categories }) => {
                     className='navigation-menu__second-level'
                   >
                     <a href={childItem.link}>{childItem.name.toUpperCase()}</a>
-                    <span>></span>
+                    <span>{'>'}</span>
                     {childItem.children
                       ? childItem.children.map(subChildItem => {
                           return (
