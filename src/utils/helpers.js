@@ -10,3 +10,17 @@ export const convertObjectToArray = inputObject => {
   }
   return resultArray;
 };
+
+export const calculateTotalPriceOfProducts = inputArray =>
+  inputArray
+    .reduce(
+      (result, product) =>
+        product.specialPrice === 0
+          ? result + product.price
+          : result + product.specialPrice,
+      0
+    )
+    .toFixed(2);
+
+export const unitQuantityFormatter = (unit, numberOfItems) =>
+  numberOfItems === 1 ? unit : `${unit}s`;

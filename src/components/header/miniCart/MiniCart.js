@@ -28,7 +28,7 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
                 <strong>{product.name.toUpperCase()}</strong>
               </span>
               <span>
-                1 x{' '}
+                1 x{' € '}
                 {product.specialPrice
                   ? product.specialPrice.toFixed(2)
                   : product.price.toFixed(2)}

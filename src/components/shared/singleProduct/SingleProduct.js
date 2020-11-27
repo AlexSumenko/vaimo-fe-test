@@ -13,8 +13,8 @@ const SingleProduct = props => {
         <Image
           imageClasses='product__image'
           src={props.image}
-          height='180rem'
-          width='180rem'
+          height='160rem'
+          width='160rem'
           alt='Product'
         />
       </div>

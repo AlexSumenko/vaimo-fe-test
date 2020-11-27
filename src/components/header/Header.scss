@@ -24,23 +24,19 @@
 
 .cart {
   border: 1px solid $vm-color-grey;
-  border-radius: 2px;
-  padding: 4px 8px 0px;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem 0;
 
   &__products,
   &__price {
     display: none;
   }
-
-  // &:hover + .mini-cart {
-  //   display: block;
-  // }
 }
 
 .menu {
   border: 1px solid $vm-color-grey;
-  border-radius: 2px;
-  padding: 4px 8px 0px;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem 0;
 
   margin-left: 8px;
   display: block;
@@ -86,9 +82,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.4rem 0.1rem;
+    padding: 0.4rem 0.6rem;
     background-color: $vm-color-white;
-    border: none;
 
     &__products,
     &__price {

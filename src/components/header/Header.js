@@ -6,6 +6,11 @@ import MiniCart from './miniCart/MiniCart';
 import Navigation from './navigation/Navigation';
 import { Logo, CartIcon, MenuIcon } from '../shared/images/Images';
 
+import {
+  calculateTotalPriceOfProducts,
+  unitQuantityFormatter,
+} from '../../utils/helpers';
+
 import './Header.scss';
 
 const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
@@ -42,20 +47,12 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
             <div className='cart' onClick={flipMiniCartClass}>
               <CartIcon width='20px' height='20px' />
               <span className='cart__products'>
-                {miniCartProducts.length} item
-                {miniCartProducts.length === 1 ? null : 's'} in your cart
+                {miniCartProducts.length}{' '}
+                {unitQuantityFormatter('item', miniCartProducts.length)} in your
+                cart
               </span>
               <span className='cart__price'>
-                €{' '}
-                {miniCartProducts
-                  .reduce(
-                    (result, product) =>
-                      product.specialPrice === 0
-                        ? result + product.price
-                        : result + product.specialPrice,
-                    0
-                  )
-                  .toFixed(2)}
+                € {calculateTotalPriceOfProducts(miniCartProducts)}
               </span>
             </div>
             <div className={miniCartClass}>

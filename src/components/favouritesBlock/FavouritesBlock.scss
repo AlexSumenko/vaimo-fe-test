@@ -16,6 +16,37 @@
 }
 
 @media screen and (min-width: $vm-desktop-breakpoint) {
+  .favourites-block {
+    &__header {
+      text-align: left;
+      color: $vm-color-black;
+      // width: 40%;
+
+      &::before {
+        content: '';
+        height: 2px;
+        border-radius: 1px;
+        width: 2%;
+        background-color: $vm-color-black;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+      }
+
+      &::after {
+        content: '';
+        height: 2px;
+        border-radius: 1px;
+        width: 69%;
+        max-width: 940px;
+        background-color: $vm-color-black;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 1rem;
+      }
+    }
+  }
+
   .product-grid {
     grid-template-columns: 22% 22% 22% 22%;
   }
