@@ -21,14 +21,14 @@ const SingleProduct = props => {
       <span className='product__name'>{props.name.toUpperCase()}</span>
       <div className='product__price-container'>
         {props.specialPrice <= 0 ? (
-          <span>€ {props.price}</span>
+          <span>€ {props.price.toFixed(2)}</span>
         ) : (
           <>
             <strike>
-              <span>€ {props.price}</span>
+              <span>€ {props.price.toFixed(2)}</span>
             </strike>{' '}
             <span className='product__special-price'>
-              € {props.specialPrice}
+              € {props.specialPrice.toFixed(2)}
             </span>
           </>
         )}

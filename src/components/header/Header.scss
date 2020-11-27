@@ -1,7 +1,7 @@
 @import '../../assets/styles/variables';
 
 .top-background {
-  width: 100%;
+  width: 100vw;
   height: 1rem;
   background-color: $vm-color-green;
 }
@@ -23,13 +23,25 @@
 }
 
 .cart {
-  background-color: $vm-color-grey;
+  border: 1px solid $vm-color-grey;
+  border-radius: 2px;
   padding: 4px 8px 0px;
+
+  &__products,
+  &__price {
+    display: none;
+  }
+
+  // &:hover + .mini-cart {
+  //   display: block;
+  // }
 }
 
 .menu {
-  background-color: $vm-color-grey;
+  border: 1px solid $vm-color-grey;
+  border-radius: 2px;
   padding: 4px 8px 0px;
+
   margin-left: 8px;
   display: block;
 }
@@ -38,6 +50,7 @@
 .mini-cart {
   display: block;
   position: absolute;
+  top: 80px;
   left: 0;
   z-index: 5;
   width: 100%;
@@ -46,7 +59,6 @@
 .mini-cart {
   background-color: $vm-color-white;
   width: 100%;
-  display: flex;
   flex-direction: column;
   text-align: left;
   padding-bottom: 3rem;
@@ -62,8 +74,34 @@
 }
 
 @media screen and (min-width: $vm-desktop-breakpoint) {
+  .header {
+    position: relative;
+  }
+
   .top-background {
     height: 1.5rem;
+  }
+
+  .cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.4rem 0.1rem;
+    background-color: $vm-color-white;
+    border: none;
+
+    &__products,
+    &__price {
+      display: inline;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .mini-cart {
+    width: 40%;
+    position: absolute;
+    top: 100px;
+    left: 57%;
   }
 
   .menu {

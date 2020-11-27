@@ -12,7 +12,10 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
   if (miniCartProducts && miniCartProducts.length > 0) {
     miniCartProductList = miniCartProducts.map(product => {
       return (
-        <div key={product.id} className='mini-cart__product-row content-width'>
+        <div
+          key={product.backendId}
+          className='mini-cart__product-row content-width'
+        >
           <div className='mini-cart__product'>
             <Image
               src={product.image}
@@ -26,7 +29,9 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
               </span>
               <span>
                 1 x{' '}
-                {product.specialPrice ? product.specialPrice : product.price}
+                {product.specialPrice
+                  ? product.specialPrice.toFixed(2)
+                  : product.price.toFixed(2)}
               </span>
             </div>
           </div>

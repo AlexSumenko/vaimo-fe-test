@@ -8,7 +8,7 @@ import { Logo, CartIcon, MenuIcon } from '../shared/images/Images';
 
 import './Header.scss';
 
-const Header = ({ deleteProductFromMiniCart }) => {
+const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
   // TODO Would be awesome to use useReducer to toggle classes dependent on each other (blush)
 
   const [navClass, setNavClass] = useState('mobile-navigation--hidden');
@@ -33,7 +33,7 @@ const Header = ({ deleteProductFromMiniCart }) => {
   };
 
   return (
-    <header>
+    <header className='header'>
       <div className='top-background'></div>
       <div className='content-width'>
         <div className='header__row'>
@@ -41,17 +41,39 @@ const Header = ({ deleteProductFromMiniCart }) => {
           <div className='header__icons'>
             <div className='cart' onClick={flipMiniCartClass}>
               <CartIcon width='20px' height='20px' />
+              <span className='cart__products'>
+                {miniCartProducts.length} item
+                {miniCartProducts.length === 1 ? null : 's'} in your cart
+              </span>
+              <span className='cart__price'>
+                €{' '}
+                {miniCartProducts
+                  .reduce(
+                    (result, product) =>
+                      product.specialPrice === 0
+                        ? result + product.price
+                        : result + product.specialPrice,
+                    0
+                  )
+                  .toFixed(2)}
+              </span>
+            </div>
+            <div className={miniCartClass}>
+              <MiniCart
+                deleted={productId => deleteProductFromMiniCart(productId)}
+              />
             </div>
             <div className='menu' onClick={flipNavClass}>
               <MenuIcon width='20px' height='20px' alt='Menu Icon' />
             </div>
+            <div className={miniCartClass}>
+              <MiniCart
+                deleted={productId => deleteProductFromMiniCart(productId)}
+              />
+            </div>
           </div>
         </div>
-        <div className={miniCartClass}>
-          <MiniCart
-            deleted={productId => deleteProductFromMiniCart(productId)}
-          />
-        </div>
+
         <div className={navClass}>
           <Navigation />
         </div>
@@ -61,6 +83,12 @@ const Header = ({ deleteProductFromMiniCart }) => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    miniCartProducts: state.minicart.miniCartProducts,
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     deleteProductFromMiniCart: productId =>
@@ -68,4 +96,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

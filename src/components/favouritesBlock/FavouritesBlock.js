@@ -12,7 +12,7 @@ const FavouritesBlock = ({ products, addProductToCart }) => {
       .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
       .map(product => (
         <SingleProduct
-          key={product.id}
+          key={product.backendId}
           name={product.name}
           image={product.image}
           price={product.price}

@@ -9,7 +9,7 @@ const Navigation = ({ categories }) => {
     menuCategories = categories.map(item => {
       return (
         <>
-          <div key={item.id}>
+          <div key={item.backendId}>
             <a className='navigation-menu__first-level' href={item.link}>
               {item.name.toUpperCase()}
             </a>
@@ -18,7 +18,7 @@ const Navigation = ({ categories }) => {
             ? item.children.map(childItem => {
                 return (
                   <>
-                    <div key={childItem.id}>
+                    <div key={childItem.backendId}>
                       <a
                         className='navigation-menu__second-level'
                         href={childItem.link}
@@ -29,7 +29,7 @@ const Navigation = ({ categories }) => {
                     {childItem.children
                       ? childItem.children.map(subChildItem => {
                           return (
-                            <div key={subChildItem.id}>
+                            <div key={subChildItem.backendId}>
                               <a
                                 className='navigation-menu__third-level'
                                 href={subChildItem.link}
