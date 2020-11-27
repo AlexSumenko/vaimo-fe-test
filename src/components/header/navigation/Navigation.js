@@ -21,22 +21,20 @@ const Navigation = ({ categories }) => {
                   >
                     <a href={childItem.link}>{childItem.name.toUpperCase()}</a>
                     <span>></span>
-                    <div className='test'>
-                      {childItem.children
-                        ? childItem.children.map(subChildItem => {
-                            return (
-                              <div
-                                key={subChildItem.backendId}
-                                className='navigation-menu__third-level'
-                              >
-                                <a href={subChildItem.link}>
-                                  {subChildItem.name.toUpperCase()}
-                                </a>
-                              </div>
-                            );
-                          })
-                        : null}
-                    </div>
+                    {childItem.children
+                      ? childItem.children.map(subChildItem => {
+                          return (
+                            <div
+                              key={subChildItem.backendId}
+                              className='navigation-menu__third-level'
+                            >
+                              <a href={subChildItem.link}>
+                                {subChildItem.name.toUpperCase()}
+                              </a>
+                            </div>
+                          );
+                        })
+                      : null}
                   </div>
                 );
               })
