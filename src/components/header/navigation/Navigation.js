@@ -8,43 +8,40 @@ const Navigation = ({ categories }) => {
   if (categories && categories.length > 0) {
     menuCategories = categories.map(item => {
       return (
-        <>
-          <div key={item.backendId}>
-            <a className='navigation-menu__first-level' href={item.link}>
-              {item.name.toUpperCase()}
-            </a>
-          </div>
+        <div key={item.backendId} className='navigation-menu__first-level'>
+          <>
+            <a href={item.link}>{item.name.toUpperCase()}</a>
+          </>
           {item.children
             ? item.children.map(childItem => {
                 return (
-                  <>
-                    <div key={childItem.backendId}>
-                      <a
-                        className='navigation-menu__second-level'
-                        href={childItem.link}
-                      >
-                        {childItem.name.toUpperCase()}
-                      </a>
-                    </div>
-                    {childItem.children
-                      ? childItem.children.map(subChildItem => {
-                          return (
-                            <div key={subChildItem.backendId}>
-                              <a
+                  <div
+                    key={childItem.backendId}
+                    className='navigation-menu__second-level'
+                  >
+                    <a href={childItem.link}>{childItem.name.toUpperCase()}</a>
+                    <span>></span>
+                    <div className='test'>
+                      {childItem.children
+                        ? childItem.children.map(subChildItem => {
+                            return (
+                              <div
+                                key={subChildItem.backendId}
                                 className='navigation-menu__third-level'
-                                href={subChildItem.link}
                               >
-                                {subChildItem.name.toUpperCase()}
-                              </a>
-                            </div>
-                          );
-                        })
-                      : null}
-                  </>
+                                <a href={subChildItem.link}>
+                                  {subChildItem.name.toUpperCase()}
+                                </a>
+                              </div>
+                            );
+                          })
+                        : null}
+                    </div>
+                  </div>
                 );
               })
             : null}
-        </>
+        </div>
       );
     });
   }

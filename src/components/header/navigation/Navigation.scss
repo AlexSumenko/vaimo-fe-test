@@ -17,19 +17,90 @@
     border-bottom: 1px solid $vm-color-grey;
   }
 
-  &:nth-child(1) {
+  &:first-child {
     border-top: 1px solid $vm-color-grey;
   }
 
-  &__first-level {
+  &__second-level:last-child,
+  &__third-level:last-child {
+    border-bottom: none;
+  }
+
+  &__first-level,
+  &__second-level,
+  &__third-level {
+    div:first-of-type {
+      border-top: 1px solid $vm-color-grey;
+    }
+  }
+
+  &__first-level a {
     margin-left: 2.5%;
   }
 
-  &__second-level {
+  &__second-level a {
     margin-left: 5%;
   }
 
-  &__third-level {
+  &__third-level a {
     margin-left: 7.5%;
+  }
+
+  &__second-level span {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $vm-desktop-breakpoint) {
+  .navigation-menu {
+    display: flex;
+    flex-direction: row;
+
+    &:first-child,
+    & div,
+    &__first-level,
+    &__second-level,
+    &__third-level {
+      border: none;
+    }
+
+    &__first-level,
+    &__second-level,
+    &__third-level {
+      div:first-of-type {
+        border: none;
+      }
+    }
+
+    &__first-level {
+      min-width: 8rem;
+      margin: 0 0.5rem;
+    }
+
+    &__second-level,
+    &__third-level {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      display: none;
+      width: 8rem;
+      // margin: 0 0.5rem;
+    }
+
+    &__second-level {
+      background-color: $vm-color-grey;
+      // display: flex;
+      // flex-direction: row;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+
+    &__second-level span {
+      display: inline;
+    }
   }
 }

@@ -75,7 +75,7 @@
   }
 
   .top-background {
-    height: 1.5rem;
+    height: 1.2rem;
   }
 
   .cart {
@@ -84,6 +84,7 @@
     align-items: center;
     padding: 0.4rem 0.6rem;
     background-color: $vm-color-white;
+    cursor: pointer;
 
     &__products,
     &__price {
@@ -105,5 +106,13 @@
 
   .desktop-navigation {
     display: block;
+
+    &::after {
+      content: '';
+      height: 0.4rem;
+      width: 100%;
+      display: block;
+      background-color: $vm-color-black;
+    }
   }
 }

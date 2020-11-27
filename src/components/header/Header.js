@@ -75,7 +75,9 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
           <Navigation />
         </div>
       </div>
-      <div className='desktop-navigation'>Desktop Nav</div>
+      <div className='desktop-navigation content-width'>
+        <Navigation />
+      </div>
     </header>
   );
 };
