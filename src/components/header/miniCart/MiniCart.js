@@ -5,7 +5,8 @@ import Image from '../../shared/images/image/Image';
 
 import { DeleteIcon } from '../../shared/images/Images';
 
-import { CURRENCY_SIGN } from '../../../utils/constants';
+import { CURRENCY_SETTINGS } from '../../../utils/constants';
+import { priceDecimalFormatter } from '../../../utils/helpers';
 
 import './MiniCart.scss';
 
@@ -30,10 +31,10 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
                 <strong>{product.name.toUpperCase()}</strong>
               </span>
               <span>
-                1 x {`${CURRENCY_SIGN} `}
+                1 x {`${CURRENCY_SETTINGS.currencySign} `}
                 {product.specialPrice
-                  ? product.specialPrice.toFixed(2)
-                  : product.price.toFixed(2)}
+                  ? priceDecimalFormatter(product.specialPrice)
+                  : priceDecimalFormatter(product.price)}
               </span>
             </div>
           </div>

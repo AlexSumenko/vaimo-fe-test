@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Button from '../button/Button';
 import Image from '../images/image/Image';
 
-import { CURRENCY_SIGN } from '../../../utils/constants';
+import { CURRENCY_SETTINGS } from '../../../utils/constants';
+import { priceDecimalFormatter } from '../../../utils/helpers';
 
 import './SingleProduct.scss';
 
@@ -24,17 +25,20 @@ const SingleProduct = props => {
       <div className='product__price-container'>
         {props.specialPrice <= 0 ? (
           <span>
-            {CURRENCY_SIGN} {props.price.toFixed(2)}
+            {CURRENCY_SETTINGS.currencySign}{' '}
+            {priceDecimalFormatter(props.price)}
           </span>
         ) : (
           <>
             <strike>
               <span>
-                {CURRENCY_SIGN} {props.price.toFixed(2)}
+                {CURRENCY_SETTINGS.currencySign}{' '}
+                {priceDecimalFormatter(props.price)}
               </span>
             </strike>{' '}
             <span className='product__special-price'>
-              {CURRENCY_SIGN} {props.specialPrice.toFixed(2)}
+              {CURRENCY_SETTINGS.currencySign}{' '}
+              {priceDecimalFormatter(props.specialPrice)}
             </span>
           </>
         )}
