@@ -58,11 +58,6 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
                 {calculateTotalPriceOfProducts(miniCartProducts)}
               </span>
             </div>
-            <div className={miniCartClass}>
-              <MiniCart
-                deleted={productId => deleteProductFromMiniCart(productId)}
-              />
-            </div>
             <div className='menu' onClick={flipNavClass}>
               <MenuIcon width='20px' height='20px' alt='Menu Icon' />
             </div>

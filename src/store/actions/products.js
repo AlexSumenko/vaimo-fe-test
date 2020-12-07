@@ -13,7 +13,9 @@ export const getProducts = () => {
   return dispatch => {
     httpRequest('products.json', 'GET')
       .then(res => {
-        const fetchedProducts = convertObjectToArray(res);
+        const fetchedProducts = convertObjectToArray(res).sort((a, b) =>
+          a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+        );
         dispatch(saveProductsToStore(fetchedProducts));
       })
       .catch(err => console.log(err));

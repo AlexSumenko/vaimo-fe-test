@@ -1,12 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Image from '../../shared/images/image/Image';
+import MiniCartProduct from './miniCartProduct/MiniCartProduct';
 
 import { DeleteIcon } from '../../shared/images/Images';
-
-import { CURRENCY_SETTINGS } from '../../../utils/constants';
-import { priceDecimalFormatter } from '../../../utils/helpers';
 
 import './MiniCart.scss';
 
@@ -19,25 +16,7 @@ const MiniCart = ({ miniCartProducts, deleted }) => {
           key={product.backendId}
           className='mini-cart__product-row content-width'
         >
-          <div className='mini-cart__product'>
-            <Image
-              src={product.image}
-              height='60rem'
-              width='60rem'
-              alt='Product in minicart'
-            />
-            <div className='mini-cart__product-info'>
-              <span>
-                <strong>{product.name.toUpperCase()}</strong>
-              </span>
-              <span>
-                1 x {`${CURRENCY_SETTINGS.currencySign} `}
-                {product.specialPrice
-                  ? priceDecimalFormatter(product.specialPrice)
-                  : priceDecimalFormatter(product.price)}
-              </span>
-            </div>
-          </div>
+          <MiniCartProduct product={product} />
           <div
             className='mini-cart__delete-icon'
             onClick={deleted.bind(this, product.backendId)}

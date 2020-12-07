@@ -12,6 +12,7 @@ const InputField = props => {
       value={props.value}
       onChange={props.changed}
       onFocus={props.focused}
+      onSubmit={props.submitted}
     />
   );
 };

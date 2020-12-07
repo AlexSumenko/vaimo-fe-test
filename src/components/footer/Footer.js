@@ -88,11 +88,12 @@ const Footer = ({ addSubscriber }) => {
               focused={e => clearInvalidStyle(e)}
             />
             <Button
-              type='button'
+              type='submit'
               btnColor='vm-green'
               clicked={e => handleSubmit(e)}
+              submitted={e => handleSubmit(e)}
             >
-              {loadingState ? 'SUBSCRIPTION PROCESSING' : 'SUBSCRIBE'}
+              {loadingState ? 'SUBSCRIPTION IS PROCESSING' : 'SUBSCRIBE'}
             </Button>
           </form>
         </div>

@@ -21,7 +21,7 @@ const SingleProduct = props => {
           alt='Product'
         />
       </div>
-      <span className='product__name'>{props.name.toUpperCase()}</span>
+      <span className='product__name'>{props.name}</span>
       <div className='product__price-container'>
         {props.specialPrice <= 0 ? (
           <span>

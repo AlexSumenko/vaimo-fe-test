@@ -8,18 +8,16 @@ import './FavouritesBlock.scss';
 const FavouritesBlock = ({ products, addProductToCart }) => {
   let productList = [];
   if (products && products.length > 0) {
-    productList = products
-      .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
-      .map(product => (
-        <SingleProduct
-          key={product.backendId}
-          name={product.name}
-          image={product.image}
-          price={product.price}
-          specialPrice={product.specialPrice}
-          clicked={addProductToCart.bind(this, product)}
-        />
-      ));
+    productList = products.map(product => (
+      <SingleProduct
+        key={product.backendId}
+        name={product.name}
+        image={product.image}
+        price={product.price}
+        specialPrice={product.specialPrice}
+        clicked={addProductToCart.bind(this, product)}
+      />
+    ));
   }
   return (
     <>

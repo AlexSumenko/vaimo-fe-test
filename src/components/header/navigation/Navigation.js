@@ -10,7 +10,7 @@ const Navigation = ({ categories }) => {
       return (
         <div key={item.backendId} className='navigation-menu__first-level'>
           <>
-            <a href={item.link}>{item.name.toUpperCase()}</a>
+            <a href={item.link}>{item.name}</a>
           </>
           {item.children
             ? item.children.map(childItem => {
@@ -19,7 +19,7 @@ const Navigation = ({ categories }) => {
                     key={childItem.backendId}
                     className='navigation-menu__second-level'
                   >
-                    <a href={childItem.link}>{childItem.name.toUpperCase()}</a>
+                    <a href={childItem.link}>{childItem.name}</a>
                     <span>{'>'}</span>
                     {childItem.children
                       ? childItem.children.map(subChildItem => {
@@ -29,7 +29,7 @@ const Navigation = ({ categories }) => {
                               className='navigation-menu__third-level'
                             >
                               <a href={subChildItem.link}>
-                                {subChildItem.name.toUpperCase()}
+                                {subChildItem.name}
                               </a>
                             </div>
                           );
