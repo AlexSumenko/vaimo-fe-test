@@ -8,7 +8,9 @@ import { DeleteIcon } from '../../shared/images/Images';
 import './MiniCart.scss';
 
 const MiniCart = ({ miniCartProducts, deleted }) => {
-  let miniCartProductList = [];
+  let miniCartProductList = (
+    <p className='mini-cart--empty'>You have no products in your cart</p>
+  );
   if (miniCartProducts && miniCartProducts.length > 0) {
     miniCartProductList = miniCartProducts.map(product => {
       return (

@@ -1,6 +1,12 @@
 @import '../../../assets/styles/variables';
 
 .mini-cart {
+  &--empty {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 0.5rem;
+  }
+
   &__product-row {
     display: flex;
     flex-direction: row;
