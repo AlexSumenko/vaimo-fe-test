@@ -25,19 +25,17 @@ const SingleProduct = props => {
       <div className='product__price-container'>
         {props.specialPrice <= 0 ? (
           <span>
-            {CURRENCY_SETTINGS.currencySign}{' '}
+            {`${CURRENCY_SETTINGS.currencySign} `}
             {priceDecimalFormatter(props.price)}
           </span>
         ) : (
           <>
-            <strike>
-              <span>
-                {CURRENCY_SETTINGS.currencySign}{' '}
-                {priceDecimalFormatter(props.price)}
-              </span>
-            </strike>{' '}
+            <span className='product__price--strike-through'>
+              {`${CURRENCY_SETTINGS.currencySign} `}
+              {priceDecimalFormatter(props.price)}
+            </span>
             <span className='product__special-price'>
-              {CURRENCY_SETTINGS.currencySign}{' '}
+              {` ${CURRENCY_SETTINGS.currencySign} `}
               {priceDecimalFormatter(props.specialPrice)}
             </span>
           </>

@@ -49,12 +49,12 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
             <div className='cart' onClick={flipMiniCartClass}>
               <CartIcon width='20px' height='20px' />
               <span className='cart__products'>
-                {miniCartProducts.length}{' '}
+                {`${miniCartProducts.length} `}
                 {unitQuantityFormatter('item', miniCartProducts.length)} in your
                 cart
               </span>
               <span className='cart__price'>
-                {CURRENCY_SETTINGS.currencySign}{' '}
+                {`${CURRENCY_SETTINGS.currencySign} `}
                 {calculateTotalPriceOfProducts(miniCartProducts)}
               </span>
             </div>

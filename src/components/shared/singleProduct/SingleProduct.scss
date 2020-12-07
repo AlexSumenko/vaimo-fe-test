@@ -16,6 +16,9 @@
   &__price-container {
     margin: 0.6rem 0;
   }
+  &__price--strike-through {
+    text-decoration: line-through;
+  }
   &__special-price {
     color: $vm-color-red;
   }
