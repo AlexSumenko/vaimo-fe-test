@@ -3,6 +3,7 @@ export { getProducts, clearProductsFromStore } from './products';
 export {
   getMiniCartProducts,
   addMiniCartProduct,
+  refreshMiniCartProducts,
   deleteMiniCartProduct,
   clearMiniCartProductsFromStore,
 } from './miniCartProducts';

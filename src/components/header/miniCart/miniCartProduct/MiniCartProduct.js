@@ -20,10 +20,11 @@ const MiniCartProduct = ({ product }) => {
       <div className='mini-cart__product-info'>
         <span className='mini-cart__product-info--name'>{product.name}</span>
         <span>
-          1 x {`${CURRENCY_SETTINGS.currencySign} `}
-          {product.specialPrice
-            ? priceDecimalFormatter(product.specialPrice)
-            : priceDecimalFormatter(product.price)}
+          {`${product.qty} x ${CURRENCY_SETTINGS.currencySign} ${
+            product.specialPrice
+              ? priceDecimalFormatter(product.specialPrice)
+              : priceDecimalFormatter(product.price)
+          }`}
         </span>
       </div>
     </div>

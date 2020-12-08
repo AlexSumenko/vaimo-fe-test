@@ -1,12 +1,40 @@
 import React from 'react';
+import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 
 import SingleProduct from '../shared/singleProduct/SingleProduct';
 
 import './FavouritesBlock.scss';
 
-const FavouritesBlock = ({ products, addProductToCart }) => {
+const FavouritesBlock = ({
+  products,
+  miniCartProducts,
+  replaceProductsInMiniCart,
+}) => {
   let productList = [];
+
+  const refreshMiniCartProducts = product => {
+    const updatedMiniCartProducts = [...miniCartProducts];
+    if (
+      !updatedMiniCartProducts.find(
+        prod => prod.backendId === product.backendId
+      )
+    ) {
+      updatedMiniCartProducts.push(product);
+      console.log(updatedMiniCartProducts);
+      replaceProductsInMiniCart(updatedMiniCartProducts);
+      return;
+    }
+    for (const prod of updatedMiniCartProducts) {
+      if (prod.backendId === product.backendId) {
+        prod.qty++;
+      }
+    }
+    console.log(updatedMiniCartProducts);
+
+    replaceProductsInMiniCart(updatedMiniCartProducts);
+  };
+
   if (products && products.length > 0) {
     productList = products.map(product => (
       <SingleProduct
@@ -15,7 +43,8 @@ const FavouritesBlock = ({ products, addProductToCart }) => {
         image={product.image}
         price={product.price}
         specialPrice={product.specialPrice}
-        clicked={addProductToCart.bind(this, product)}
+        // clicked={addProductToCart.bind(this, product)}
+        clicked={refreshMiniCartProducts.bind(this, product)}
       />
     ));
   }
@@ -32,7 +61,15 @@ const FavouritesBlock = ({ products, addProductToCart }) => {
 const mapStateToProps = state => {
   return {
     products: state.prd.products,
+    miniCartProducts: state.minicart.miniCartProducts,
   };
 };
 
-export default connect(mapStateToProps)(FavouritesBlock);
+const dispatchStateToProps = dispatch => {
+  return {
+    replaceProductsInMiniCart: products =>
+      dispatch(actions.refreshMiniCartProducts(products)),
+  };
+};
+
+export default connect(mapStateToProps, dispatchStateToProps)(FavouritesBlock);

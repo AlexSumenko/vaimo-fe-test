@@ -21,8 +21,8 @@ export const calculateTotalPriceOfProducts = inputArray =>
     inputArray.reduce(
       (result, product) =>
         product.specialPrice === 0
-          ? result + product.price
-          : result + product.specialPrice,
+          ? result + product.price * product.qty
+          : result + product.specialPrice * product.qty,
       0
     )
   );

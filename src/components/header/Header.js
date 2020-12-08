@@ -49,9 +49,14 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
             <div className='cart' onClick={flipMiniCartClass}>
               <CartIcon width='20px' height='20px' />
               <span className='cart__products'>
-                {`${miniCartProducts.length} `}
-                {unitQuantityFormatter('item', miniCartProducts.length)} in your
-                cart
+                {`${miniCartProducts.reduce(
+                  (acc, el) => acc + el.qty,
+                  0
+                )} ${unitQuantityFormatter(
+                  'item',
+                  miniCartProducts.length
+                )} in your
+                cart`}
               </span>
               <span className='cart__price'>
                 {`${CURRENCY_SETTINGS.currencySign} `}
@@ -63,7 +68,9 @@ const Header = ({ miniCartProducts, deleteProductFromMiniCart }) => {
             </div>
             <div className={miniCartClass}>
               <MiniCart
-                deleted={productId => deleteProductFromMiniCart(productId)}
+                deleted={(productId, backendKey) =>
+                  deleteProductFromMiniCart(productId, backendKey)
+                }
               />
             </div>
           </div>
@@ -88,8 +95,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteProductFromMiniCart: productId =>
-      dispatch(actions.deleteMiniCartProduct(productId)),
+    deleteProductFromMiniCart: (productId, backendKey) =>
+      dispatch(actions.deleteMiniCartProduct(productId, backendKey)),
   };
 };
 
